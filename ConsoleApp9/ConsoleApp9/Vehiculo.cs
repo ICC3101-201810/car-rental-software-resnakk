@@ -11,14 +11,15 @@ namespace ConsoleApp9
         public List<string> Accesorios = new List<string>();
         public string Documentos;
         public string Tipo;
+        public Int32 Precio;
        
         public  void AddAcc(string Acc)
         {
             Accesorios.Add(Acc);
         }
-        public  List<string> GetAccs(Vehiculo vehiculo)
+        public  List<string> GetAccs()
         {
-             return vehiculo.Accesorios;
+             return this.Accesorios;
         }   
         public string GetDoc()
         {
@@ -31,56 +32,62 @@ namespace ConsoleApp9
     }
     class Auto : Vehiculo
     {
-        public Auto(List<string> Ac, string Doc)
+        public Auto(List<string> Ac, string Doc, Int32 P)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Auto";
+            Precio = P;
         }
     }
     class Acuatico : Vehiculo
     {
-        public Acuatico(List<string> Ac, string Doc)
+        public Acuatico(List<string> Ac, string Doc, Int32 P)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Acuatico";
+            Precio = P;
         }
     }
     class Moto : Vehiculo
     {
-        public Moto(List<string> Ac, string Doc)
+        public Moto(List<string> Ac, string Doc, Int32 P)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Moto";
+            Precio = P;
         }
     }
     class Camion : Vehiculo
     {
-        public Camion(List<string> Ac, string Doc)
+        public Camion(List<string> Ac, string Doc, Int32 P)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Camion";
+            Precio = P;
         }
     }
     class Bus : Vehiculo
     {
-        public Bus(List<string> Ac, string Doc)
+        public Bus(List<string> Ac, string Doc, Int32 P)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Bus";
+            Precio = P;
         }
     }
     class Maquinaria : Vehiculo
     {
-        public Maquinaria(List<string> Ac, string Doc)
+        public Maquinaria(List<string> Ac, string Doc, Int32 P)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Maquinaria";
+            Precio = P;
         }
     }
 }

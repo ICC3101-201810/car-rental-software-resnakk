@@ -8,15 +8,21 @@ namespace ConsoleApp9
 {
     class Sucursal
     {
-        public string Id;
-        public Sucursal(string ID)
+        string Id;
+        List<Accesorios> Accesorios;
+        public Sucursal(string ID , List<Accesorios> Ac)
         {
             Id = ID;
+            Accesorios = Ac;
         }
 
         public string GetId()
         {
             return Id;
+        }
+        public List<Accesorios> GetAccesorios()
+        {
+            return this.Accesorios;
         }
     }
     
