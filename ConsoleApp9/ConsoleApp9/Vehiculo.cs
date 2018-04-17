@@ -12,6 +12,7 @@ namespace ConsoleApp9
         public string Documentos;
         public string Tipo;
         public Int32 Precio;
+        public int Stock;
        
         public  void AddAcc(Accesorios Acc)
         {
@@ -32,62 +33,68 @@ namespace ConsoleApp9
     }
     class Auto : Vehiculo
     {
-        public Auto(List<Accesorios> Ac, string Doc, Int32 P)
+        public Auto(List<Accesorios> Ac, string Doc, Int32 P, int stock)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Auto";
             Precio = P;
+            Stock = stock;
         }
     }
     class Acuatico : Vehiculo
     {
-        public Acuatico(List<Accesorios> Ac, string Doc, Int32 P)
+        public Acuatico(List<Accesorios> Ac, string Doc, Int32 P, int stock)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Acuatico";
             Precio = P;
+            Stock = stock;
         }
     }
     class Moto : Vehiculo
     {
-        public Moto(List<Accesorios> Ac, string Doc, Int32 P)
+        public Moto(List<Accesorios> Ac, string Doc, Int32 P, int stock)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Moto";
             Precio = P;
+            Stock = stock;
         }
     }
     class Camion : Vehiculo
     {
-        public Camion(List<Accesorios> Ac, string Doc, Int32 P)
+        public Camion(List<Accesorios> Ac, string Doc, Int32 P, int stock)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Camion";
             Precio = P;
+            Stock = stock;
         }
     }       
     class Bus : Vehiculo
     {
-        public Bus(List<Accesorios> Ac, string Doc, Int32 P)
+        public Bus(List<Accesorios> Ac, string Doc, Int32 P, int stock)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Bus";
             Precio = P;
+            Stock = stock;
         }
     }
     class Maquinaria : Vehiculo
     {
-        public Maquinaria(List<Accesorios> Ac, string Doc, Int32 P)
+        public Maquinaria(List<Accesorios> Ac, string Doc, Int32 P, int stock)
         {
             Accesorios = Ac;
             Documentos = Doc;
             Tipo = "Maquinaria";
             Precio = P;
+            Stock = stock;
         }
     }
 }

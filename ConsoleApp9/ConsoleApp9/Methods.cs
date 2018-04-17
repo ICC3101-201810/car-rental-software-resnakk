@@ -11,6 +11,7 @@ namespace ConsoleApp9
         public  Methods()
             {
             }
+        
         public bool ConseguirPersmiso(Cliente C, Vehiculo M)
         {
             if (M.Tipo == "Maquinaria" && C.Tipo == "Empresa")
@@ -19,6 +20,7 @@ namespace ConsoleApp9
                 Int32 Prob = rnd.Next(0, 101);
                 if (Prob <= 63)
                 {
+                    C.Permiso = M.GetDoc();
                     return true;
                 }
                 return false;
@@ -29,6 +31,7 @@ namespace ConsoleApp9
                 Int32 Prob = rnd.Next(0, 101);
                 if (Prob <= 80)
                 {
+                    C.Permiso = M.GetDoc();
                     return true;
                 }
                 return false;
@@ -39,6 +42,7 @@ namespace ConsoleApp9
                 Int32 Prob = rnd.Next(0, 101);
                 if (Prob <= 35)
                 {
+                    C.Permiso = M.GetDoc();
                     return true;
                 }
                 return false;
@@ -49,6 +53,7 @@ namespace ConsoleApp9
                 Int32 Prob = rnd.Next(0, 101);
                 if (Prob <= 58)
                 {
+                    C.Permiso = M.GetDoc();
                     return true;
                 }
                 return false;
@@ -85,7 +90,7 @@ namespace ConsoleApp9
                                 }
                                 else
                                 {
-                                    Ve.GetAccs().Add(i.Tipo);
+                                    Ve.GetAccs().Add(i);
                                     i.Stock--;
                                     CostoT += i.Precio;
                                 }
@@ -106,7 +111,7 @@ namespace ConsoleApp9
                                 }
                                 else
                                 {
-                                    Ve.GetAccs().Add(i.Tipo);
+                                    Ve.GetAccs().Add(i);
                                     i.Stock--;
                                     CostoT += i.Precio;
                                 }
@@ -125,7 +130,7 @@ namespace ConsoleApp9
                                 }
                                 else
                                 {
-                                    Ve.GetAccs().Add(i.Tipo);
+                                    Ve.GetAccs().Add(i);
                                     i.Stock--;
                                     CostoT += i.Precio;
                                 }
@@ -144,7 +149,7 @@ namespace ConsoleApp9
                                 }
                                 else
                                 {
-                                    Ve.GetAccs().Add(i.Tipo);
+                                    Ve.GetAccs().Add(i);
                                     i.Stock--;
                                     CostoT += i.Precio;
                                 }
@@ -163,7 +168,7 @@ namespace ConsoleApp9
                                 }
                                 else
                                 {
-                                    Ve.GetAccs().Add(i.Tipo);
+                                    Ve.GetAccs().Add(i);
                                     i.Stock--;
                                     CostoT += i.Precio;
                                 }
@@ -246,7 +251,9 @@ namespace ConsoleApp9
                     string Documento = Console.ReadLine();
                     Console.WriteLine("Precio del Auto:");
                     Int32 Precio = Int32.Parse(Console.ReadLine());
-                    Auto Autelio = new Auto(A, Documento, Precio);
+                    Console.WriteLine("Stock de Autos:");
+                    Int32 Stock = Int32.Parse(Console.ReadLine());
+                    Auto Autelio = new Auto(A, Documento, Precio,Stock);
                     return Autelio;
                 }
                 else if (V == "Acuatico")
@@ -255,7 +262,9 @@ namespace ConsoleApp9
                     string Documento = Console.ReadLine();
                     Console.WriteLine("Precio del Acuatico:");
                     Int32 Precio = Int32.Parse(Console.ReadLine());
-                    Acuatico Autelio = new Acuatico(A, Documento, Precio);
+                    Console.WriteLine("Stock de Acuaticos:");
+                    Int32 Stock = Int32.Parse(Console.ReadLine());
+                    Acuatico Autelio = new Acuatico(A, Documento, Precio, Stock);
                     return Autelio;
                 }
                 else if (V == "Moto")
@@ -264,7 +273,9 @@ namespace ConsoleApp9
                     string Documento = Console.ReadLine();
                     Console.WriteLine("Precio de la Moto:");
                     Int32 Precio = Int32.Parse(Console.ReadLine());
-                    Moto Autelio = new Moto(A, Documento, Precio);
+                    Console.WriteLine("Stock de Motos:");
+                    Int32 Stock = Int32.Parse(Console.ReadLine());
+                    Moto Autelio = new Moto(A, Documento, Precio, Stock);
                     return Autelio;
                 }
                 else if (V == "Camion")
@@ -273,7 +284,9 @@ namespace ConsoleApp9
                     string Documento = Console.ReadLine();
                     Console.WriteLine("Precio del Camion:");
                     Int32 Precio = Int32.Parse(Console.ReadLine());
-                    Camion Autelio = new Camion(A, Documento, Precio);
+                    Console.WriteLine("Stock de Autos:");
+                    Int32 Stock = Int32.Parse(Console.ReadLine());
+                    Camion Autelio = new Camion(A, Documento, Precio, Stock);
                     return Autelio;
                 }
                 else if (V == "Bus")
@@ -282,7 +295,9 @@ namespace ConsoleApp9
                     string Documento = Console.ReadLine();
                     Console.WriteLine("Precio del Bus:");
                     Int32 Precio = Int32.Parse(Console.ReadLine());
-                    Bus Autelio = new Bus(A, Documento, Precio);
+                    Console.WriteLine("Stock de Autos:");
+                    Int32 Stock = Int32.Parse(Console.ReadLine());
+                    Bus Autelio = new Bus(A, Documento, Precio, Stock);
                     return Autelio;
                 }
                 else if (V == "Maquinaria")
@@ -291,14 +306,187 @@ namespace ConsoleApp9
                     string Documento = Console.ReadLine();
                     Console.WriteLine("Precio de la Maquinaria:");
                     Int32 Precio = Int32.Parse(Console.ReadLine());
-                    Maquinaria Autelio = new Maquinaria(A, Documento, Precio);
+                    Console.WriteLine("Stock de Autos:");
+                    Int32 Stock = Int32.Parse(Console.ReadLine());
+                    Maquinaria Autelio = new Maquinaria(A, Documento, Precio, Stock);
                     return Autelio;
                 }
             }
         }
-        public Sucursal AgregarSucursal()
+        public Arriendo ArrendarVehiculo(List<Vehiculo> L, List<Arriendo> A,Cliente C )
         {
-            Console.WriteLine();
+            Console.WriteLine("Vehiculo a arrendar:");
+            string V = Console.ReadLine();
+            
+            while (true)
+            {
+                if (V == "Auto" )
+                {
+                    foreach (Vehiculo i in L)
+                    {
+                        if (i.Tipo == "Auto" && i.Stock > 0 && VerificarArriendo(C,i) == true)
+                        {
+                            i.Stock--;
+                            DateTime date = new DateTime();
+                            Arriendo arriendo = new Arriendo(C, i., date.ToUniversalTime());
+                            A.Add(arriendo);
+                            break;
+                        }
+                        else if (i.Tipo == "Auto")
+                        {
+                            break;
+                        }
+                    }
+
+                }
+                else if (V == "Acuatico")
+                {
+                    foreach (Vehiculo i in L)
+                    {
+                        if (i.Tipo == "Acuatico" && i.Stock > 0 && VerificarArriendo(C, i) == true)
+                        {
+                            i.Stock--;
+                            DateTime date = new DateTime();
+                            Arriendo arriendo = new Arriendo(C, i, date.ToUniversalTime());
+                            A.Add(arriendo);
+                            break;
+                        }
+                        else if (i.Tipo == "Acuatico")
+                        {
+                            break;
+                        }
+                    }
+
+                }
+                else if (V == "Moto")
+                {
+                    foreach (Vehiculo i in L)
+                    {
+                        if (i.Tipo == "Moto" && i.Stock > 0 && VerificarArriendo(C, i) == true)
+                        {
+                            i.Stock--;
+                            DateTime date = new DateTime();
+                            Arriendo arriendo = new Arriendo(C, i, date.ToUniversalTime());
+                            A.Add(arriendo);
+                            break;
+                        }
+                        else if (i.Tipo == "Moto")
+                        {
+                            break;
+                        }
+                    }
+
+                }
+                else if (V == "Camion")
+                {
+                    foreach (Vehiculo i in L)
+                    {
+                        if (i.Tipo == "Camion" && i.Stock > 0 && VerificarArriendo(C, i) == true)
+                        {
+                            i.Stock--;
+                            DateTime date = new DateTime();
+                            Arriendo arriendo = new Arriendo(C, i, date.ToUniversalTime());
+                            A.Add(arriendo);
+                            break;
+                        }
+                        else if (i.Tipo == "Camion")
+                        {
+                            break;
+                        }
+                    }
+
+                }
+                else if (V == "Bus")
+                {
+                    foreach (Vehiculo i in L)
+                    {
+                        if (i.Tipo == "Bus" && i.Stock > 0 && VerificarArriendo(C, i) == true)
+                        {
+                            i.Stock--;
+                            DateTime date = new DateTime();
+                            Arriendo arriendo = new Arriendo(C, i, date.ToUniversalTime());
+                            A.Add(arriendo);
+                            break;
+                        }
+                        else if (i.Tipo == "Bus")
+                        {
+                            break;
+                        }
+                    }
+
+                }
+                else if (V == "Maquinaria")
+                {
+                    foreach (Vehiculo i in L)
+                    {
+                        if (i.Tipo == "Maquinaria" && i.Stock > 0 && VerificarArriendo(C, i) == true)
+                        {
+                            i.Stock--;
+                            DateTime date = new DateTime();
+                            Arriendo arriendo = new Arriendo(C, i, date.ToUniversalTime());
+                            A.Add(arriendo);
+                            break;
+                        }
+                        else if (i.Tipo == "Maquinaria")
+                        {
+                            break;
+                        }
+                    }
+
+                }
+            }
+        }
+        public void TipoPermiso(Cliente C,bool t, Vehiculo V)
+        {
+            if (t == true)
+            {
+                C.Permiso = V.GetDoc();
+            }
+            else
+        }
+        public Vehiculo GetVehiculo(string a, List<Vehiculo> v)
+        {
+            while (true)
+            {
+                foreach (Vehiculo i in v)
+                {
+                    if (i.Tipo == a)
+                    {
+                        return i;
+                    }
+
+                }
+                Console.WriteLine("Tipo de vehiculo;");
+                a = Console.ReadLine();
+            }
+            
+        }
+        public Cliente agregatCliente( string rut,string permiso, string tipo)
+        {
+            while (true)
+            {
+                if (tipo == "Persona")
+                {
+                    Persona P = new Persona(permiso, rut);
+                    return P;
+                }
+                else if (tipo == "Empresa")
+                {
+                    Empresa P = new Empresa(permiso, rut);
+                    return P;
+                }
+                if (tipo == "Organizacion")
+                {
+                    Organizacion P = new Organizacion(permiso, rut);
+                    return P;
+                }
+                if (tipo == "Institucion")
+                {
+                    Institucion P = new Institucion(permiso, rut);
+                    return P;
+                }
+            }
+            
         }
     }
 }
