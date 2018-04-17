@@ -10,14 +10,7 @@ namespace ConsoleApp9
     {
         public string Permiso;
         public string Rut;
-        public string GetPermiso()
-        {
-            return Permiso;
-        }
-        public string GetRut()
-        {
-            return Rut;
-        }
+        public string Tipo;
 
     }
     class  Persona : Cliente
@@ -26,6 +19,7 @@ namespace ConsoleApp9
         {
             Permiso = P;
             Rut = R;
+            Tipo = "Persona";
         }
     }
 
@@ -35,16 +29,7 @@ namespace ConsoleApp9
         {
             Permiso = P;
             Rut = R;
-        }
-        public bool ConseguirPersmiso(Empresa E, Maquinaria M)
-        {
-            Random rnd = new Random();
-            Int32 Prob = rnd.Next(0, 101);
-            if (Prob <= 63)
-            {
-                return true;
-            }
-            return false;   
+            Tipo = "Empresa";
         }
     }
     class Organizacion : Cliente
@@ -53,9 +38,20 @@ namespace ConsoleApp9
         {
             Permiso = P;
             Rut = R;
+            Tipo = "Organizacion";
         }
     }
-            
+    class Institucion : Cliente
+    {
+        public Institucion(string P, string R)
+        {
+            Permiso = P;
+            Rut = R;
+            Tipo = "Institucion";
+        }
+    }
+
+
 
 
 }

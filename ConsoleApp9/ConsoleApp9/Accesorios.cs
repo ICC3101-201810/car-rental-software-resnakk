@@ -16,51 +16,51 @@ namespace ConsoleApp9
     }
     class Gps : Accesorios
     {
-        public Gps(Int32 S, string N,string T, Int32 P)
+        public Gps(Int32 S, string N, Int32 P)
         {
             Stock = S;
             Nombre = N;
-            Tipo = T;
+            Tipo = "Gps";
             Precio = P;
         }
     }
     class Bluetooth : Accesorios
     {
-        public Bluetooth(Int32 S, string N, string T, Int32 P)
+        public Bluetooth(Int32 S, string N, Int32 P)
         {
             Stock = S;
             Nombre = N;
-            Tipo = T;
+            Tipo = "Bluetooth";
             Precio = P;
         }
     }
     class RuedaE : Accesorios
     {
-        public RuedaE(Int32 S, string N, string T, Int32 P)
+        public RuedaE(Int32 S, string N, Int32 P)
         {
             Stock = S;
             Nombre = N;
-            Tipo = T;
+            Tipo = "Rueda";
             Precio = P;
         }
     }
     class Cortinas : Accesorios
     {
-        public Cortinas(Int32 S, string N, string T, Int32 P)
+        public Cortinas(Int32 S, string N, Int32 P)
         {
             Stock = S;
             Nombre = N;
-            Tipo = T;
+            Tipo = "Cortina";
             Precio = P;
         }
     }
     class Sillas : Accesorios
     {
-        public Sillas(Int32 S, string N, string T, Int32 P)
+        public Sillas(Int32 S, string N, Int32 P)
         {
             Stock = S;
             Nombre = N;
-            Tipo = T;
+            Tipo = "Silla";
             Precio = P;
         }
     }
