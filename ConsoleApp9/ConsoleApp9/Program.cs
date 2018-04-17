@@ -65,11 +65,16 @@ namespace ConsoleApp9
                 }
                 else if (orden == "4")
                 {
+                    Console.Clear();
+                    Console.WriteLine("rut cliente:");
+                    string a = Console.ReadLine();
+                    Console.WriteLine("Tipo de auto que desea recibir:");
+                    string b = Console.ReadLine();
 
                 }
                 else if (orden == "5")
                 {
-
+                    break;
                 }
             }
 

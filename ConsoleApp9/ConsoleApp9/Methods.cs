@@ -442,7 +442,7 @@ namespace ConsoleApp9
             {
                 C.Permiso = V.GetDoc();
             }
-            else
+            
         }
         public Vehiculo GetVehiculo(string a, List<Vehiculo> v)
         {
@@ -460,6 +460,16 @@ namespace ConsoleApp9
                 a = Console.ReadLine();
             }
             
+        }
+        public Cliente GetCliente(string a, List<Arriendo> b)
+        {
+            while (true)
+            {
+                foreach (Arriendo s in b)
+                {
+                    Cliente a = s.Cliente())
+                }
+            }
         }
         public Cliente agregatCliente( string rut,string permiso, string tipo)
         {
@@ -487,6 +497,10 @@ namespace ConsoleApp9
                 }
             }
             
+        }
+        public bool RecibirVehiculo(string a,string b)
+        {
+
         }
     }
 }
