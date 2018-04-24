@@ -18,7 +18,7 @@ namespace ConsoleApp9
 
         public string GetId()
         {
-            return Id;
+            return this.Id;
         }
         public List<Accesorios> GetAccesorios()
         {

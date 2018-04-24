@@ -6,48 +6,79 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp9
 {
-    class Cliente
+    public enum TipoC { Persona, Empresa, Organizacion, Institucion }
+    abstract class Cliente
     {
-        public string Permiso;
-        public string Rut;
-        public string Tipo;
+        string Permiso;
+        string Rut;
+
+        public Cliente(string permiso, string rut)
+        {
+            Permiso = permiso;
+            Rut = rut;
+        }
+        public string GetPermiso()
+        {
+            return this.Permiso;
+        }
+        public string GetRut()
+        {
+            return this.Rut;
+        }
+        public abstract TipoC GetTipoC();
 
     }
-    class  Persona : Cliente
+    class Persona : Cliente
     {
-        public Persona(string P, string R)
+        TipoC Tipo;
+        public Persona(string permiso, string rut)
+            : base(permiso, rut)
         {
-            Permiso = P;
-            Rut = R;
-            Tipo = "Persona";
+            Tipo = TipoC.Persona;
+        }
+        public override TipoC GetTipoC()
+        {
+            return this.Tipo;
         }
     }
 
     class Empresa : Cliente
     {
-        public Empresa(string P, string R)
+        TipoC Tipo;
+        public Empresa(string permiso, string rut)
+            : base(permiso, rut)
         {
-            Permiso = P;
-            Rut = R;
-            Tipo = "Empresa";
+            Tipo = TipoC.Empresa;
+        }
+        public override TipoC GetTipoC()
+        {
+            return this.Tipo;
         }
     }
     class Organizacion : Cliente
     {
-        public Organizacion(string P, string R)
+        TipoC Tipo;
+        public Organizacion(string permiso, string rut)
+            : base(permiso, rut)
         {
-            Permiso = P;
-            Rut = R;
-            Tipo = "Organizacion";
+            Tipo = TipoC.Organizacion;
+        }
+        public override TipoC GetTipoC()
+        {
+            return this.Tipo;
         }
     }
     class Institucion : Cliente
     {
-        public Institucion(string P, string R)
+        TipoC Tipo;
+        public Institucion(string permiso, string rut)
+            : base(permiso, rut)
         {
-            Permiso = P;
-            Rut = R;
-            Tipo = "Institucion";
+            Tipo = TipoC.Institucion;
+        }
+        public override TipoC GetTipoC()
+        {
+            return this.Tipo;
         }
     }
 

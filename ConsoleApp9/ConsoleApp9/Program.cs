@@ -15,6 +15,10 @@ namespace ConsoleApp9
             List<Accesorios> AccesoriosGenerales;
             List<Arriendo> Registros = new List<Arriendo>();
             Methods Methods = new Methods();
+            Persona p = new Persona("Carlos", "19596958");
+            p.Saludar();
+            Console.ReadKey();
+
             while (true)
             {
                 Console.WriteLine("Bienvenido!");

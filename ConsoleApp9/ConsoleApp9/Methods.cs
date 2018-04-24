@@ -187,7 +187,7 @@ namespace ConsoleApp9
 
             if (AA.Tipo == "Persona" && AA.Permiso == BB.GetDoc())
             {
-                if (BB.GetTipo() == "Bus")
+                if (BB.GetTipoV() == "Bus")
                 {
                     return false;
                 }
@@ -444,30 +444,53 @@ namespace ConsoleApp9
             }
             
         }
-        public Vehiculo GetVehiculo(string a, List<Vehiculo> v)
+        public Vehiculo GetVehiculo(TipoV a, List<Vehiculo> v)
         {
             while (true)
             {
                 foreach (Vehiculo i in v)
                 {
-                    if (i.Tipo == a)
+                    if (i.GetTipoV() == a)
                     {
                         return i;
                     }
 
                 }
+                fallo:
                 Console.WriteLine("Tipo de vehiculo;");
-                a = Console.ReadLine();
+                string b = Console.ReadLine();
+                switch (b)
+                {
+                    case "Auto":
+                        a = TipoV.Auto;
+                        break;
+                    case "Moto":
+                        a = TipoV.Moto;
+                        break;
+                    case "Acuatico":
+                        a = TipoV.Acuatico;
+                        break;
+                    case "Maquinaria":
+                        a = TipoV.MAquinaria;
+                        break;
+                    default:
+                        goto fallo;
+                        
+                        
+
+                        
+                }
             }
             
         }
-        public Cliente GetCliente(string a, List<Arriendo> b)
+        public bool VerCliente(string a, List<Arriendo> b)
         {
             while (true)
             {
                 foreach (Arriendo s in b)
                 {
-                    Cliente a = s.Cliente())
+                    if (a == s.GetRutCliente()) { return true; }
+                    else { return false; }
                 }
             }
         }
@@ -498,9 +521,12 @@ namespace ConsoleApp9
             }
             
         }
-        public bool RecibirVehiculo(string a,string b)
+        public void RecibirVehiculo(bool a, List<Vehiculo> b)
         {
+            if (a == true)
+            {
 
+            }
         }
     }
 }

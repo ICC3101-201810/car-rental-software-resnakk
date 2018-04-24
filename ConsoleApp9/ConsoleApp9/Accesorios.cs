@@ -6,62 +6,71 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp9
 {
-    
-    class Accesorios
+    public enum TipoA { Gps, Bluetooth, Rueda, Cortina, Silla}
+    abstract class Accesorios
     {
-        public Int32 Stock;
-        public Int32 Precio;
-        public string Nombre;
-        public string Tipo;    
+        int Stock;
+        int Precio;
+        string Nombre;
+        public Accesorios(int stock ,int precio, string nombre)
+        {
+            Stock = stock;
+            Precio = precio;
+            Nombre = nombre;
+        }
+        public int GetStock() { return this.Stock; }
+        public int GetPrecio() { return this.Precio; } 
+        public string GetNombre() { return this.Nombre; }
+        public abstract TipoA GetTipoA();
     }
     class Gps : Accesorios
     {
-        public Gps(Int32 S, string N, Int32 P)
+        TipoA Tipo;
+        public Gps(int S, int P, string N) : base(S, P, N) 
         {
-            Stock = S;
-            Nombre = N;
-            Tipo = "Gps";
-            Precio = P;
+            Tipo = TipoA.Gps;
         }
+        public override TipoA GetTipoA() { return this.Tipo; }
+        
     }
     class Bluetooth : Accesorios
     {
-        public Bluetooth(Int32 S, string N, Int32 P)
+        TipoA Tipo;
+        public Bluetooth(int S, int P, string N) : base(S, P, N)
         {
-            Stock = S;
-            Nombre = N;
-            Tipo = "Bluetooth";
-            Precio = P;
+            Tipo = TipoA.Bluetooth;
         }
+        public override TipoA GetTipoA() { return this.Tipo; }
+
     }
-    class RuedaE : Accesorios
+    class Rueda : Accesorios
     {
-        public RuedaE(Int32 S, string N, Int32 P)
+        TipoA Tipo;
+        public Rueda(int S, int P, string N) : base(S, P, N)
         {
-            Stock = S;
-            Nombre = N;
-            Tipo = "Rueda";
-            Precio = P;
+            Tipo = TipoA.Rueda;
         }
+        public override TipoA GetTipoA() { return this.Tipo; }
+
     }
-    class Cortinas : Accesorios
+    class Cortina : Accesorios
     {
-        public Cortinas(Int32 S, string N, Int32 P)
+        TipoA Tipo;
+        public Cortina(int S, int P, string N) : base(S, P, N) 
         {
-            Stock = S;
-            Nombre = N;
-            Tipo = "Cortina";
-            Precio = P;
+            Tipo = TipoA.Cortina;
         }
+        public override TipoA GetTipoA() { return this.Tipo; }
+        
     }
-    class Sillas : Accesorios
+    class Silla : Accesorios
     {
-        public Sillas(Int32 S, string N, Int32 P)
+        TipoA Tipo;
+        public Silla(int S, int P, string N) : base(S, P, N)
         {
-            Stock = S;
-            Nombre = N;
-            Tipo = "Silla";
-            Precio = P;
+            Tipo = TipoA.Silla;
         }
+        public override TipoA GetTipoA() { return this.Tipo; }
+
     }
 }

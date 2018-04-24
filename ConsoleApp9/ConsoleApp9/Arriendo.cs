@@ -11,14 +11,18 @@ namespace ConsoleApp9
         Cliente Cliente;
         Vehiculo Vehiculo;
         DateTime Hora;
+
         public Arriendo(Cliente C,  Vehiculo V, DateTime D)
         {
             Cliente = C;
             Vehiculo = V;
             Hora = D;
-
-
         }
+        public string GetRutCliente()
+        {
+            return this.Cliente.GetRut();
+        }
+        
       
     }
 }

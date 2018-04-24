@@ -6,95 +6,106 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp9
 {
-    class Vehiculo
+    public enum TipoV { Auto, Acuatico, Moto, Camion, Bus, MAquinaria }
+    abstract class Vehiculo
     {
-        public List<Accesorios> Accesorios = new List<Accesorios>();
-        public string Documentos;
-        public string Tipo;
-        public Int32 Precio;
-        public int Stock;
-       
-        public  void AddAcc(Accesorios Acc)
+        List<Accesorios> Accesorios;
+        string Documentos;
+        int Precio;
+        int Stock;
+        public Vehiculo(List<Accesorios> accesorios, string documentos, int precio, int stock)
         {
-            Accesorios.Add(Acc);
+            Accesorios = accesorios;
+            Documentos = documentos;
+            Precio = precio;
+            Stock = stock;
         }
-        public  List<Accesorios> GetAccs()
-        {
-             return this.Accesorios;
-        }   
-        public string GetDoc()
-        {
-            return Documentos;
-        }
-        public string GetTipo()
-        {
-            return Tipo;
-        }
+        public void AddAcc(Accesorios Acc){Accesorios.Add(Acc);}
+        public List<Accesorios> GetAccs() { return this.Accesorios; }
+        public string GetDoc() { return this.Documentos; }
+        public abstract TipoV GetTipoV();
     }
+
+
+    
     class Auto : Vehiculo
     {
-        public Auto(List<Accesorios> Ac, string Doc, Int32 P, int stock)
+        TipoV Tipo;
+        public Auto(List<Accesorios> Ac, string Doc, int P, int stock)
+            : base(Ac, Doc, P, stock)
         {
-            Accesorios = Ac;
-            Documentos = Doc;
-            Tipo = "Auto";
-            Precio = P;
-            Stock = stock;
+            Tipo = TipoV.Auto;
+        }
+        public override TipoV GetTipoV()
+        {
+            return this.Tipo;
         }
     }
+    
     class Acuatico : Vehiculo
     {
-        public Acuatico(List<Accesorios> Ac, string Doc, Int32 P, int stock)
+        TipoV Tipo;
+        public Acuatico(List<Accesorios> Ac, string Doc, int P, int stock)
+            : base(Ac, Doc, P, stock)
         {
-            Accesorios = Ac;
-            Documentos = Doc;
-            Tipo = "Acuatico";
-            Precio = P;
-            Stock = stock;
+            Tipo = TipoV.Acuatico;
         }
+        public override TipoV GetTipoV()
+        {
+            return this.Tipo;
+        }
+
     }
     class Moto : Vehiculo
     {
-        public Moto(List<Accesorios> Ac, string Doc, Int32 P, int stock)
+        TipoV Tipo;
+        public Moto(List<Accesorios> Ac, string Doc, int P, int stock)
+            : base(Ac, Doc, P, stock)
         {
-            Accesorios = Ac;
-            Documentos = Doc;
-            Tipo = "Moto";
-            Precio = P;
-            Stock = stock;
+            Tipo = TipoV.Moto;
+        }
+        public override TipoV GetTipoV()
+        {
+            return this.Tipo;
         }
     }
     class Camion : Vehiculo
     {
-        public Camion(List<Accesorios> Ac, string Doc, Int32 P, int stock)
+        TipoV Tipo;
+        public Camion(List<Accesorios> Ac, string Doc, int P, int stock)
+            : base(Ac, Doc, P, stock)
         {
-            Accesorios = Ac;
-            Documentos = Doc;
-            Tipo = "Camion";
-            Precio = P;
-            Stock = stock;
+            Tipo = TipoV.Camion;
+        }
+        public override TipoV GetTipoV()
+        {
+            return this.Tipo;
         }
     }       
     class Bus : Vehiculo
     {
-        public Bus(List<Accesorios> Ac, string Doc, Int32 P, int stock)
+        TipoV Tipo;
+        public Bus(List<Accesorios> Ac, string Doc, int P, int stock)
+            : base(Ac, Doc, P, stock)
         {
-            Accesorios = Ac;
-            Documentos = Doc;
-            Tipo = "Bus";
-            Precio = P;
-            Stock = stock;
+            Tipo = TipoV.Bus;
+        }
+        public override TipoV GetTipoV()
+        {
+            return this.Tipo;
         }
     }
     class Maquinaria : Vehiculo
     {
-        public Maquinaria(List<Accesorios> Ac, string Doc, Int32 P, int stock)
+        TipoV Tipo;
+        public Maquinaria(List<Accesorios> Ac, string Doc, int P, int stock)
+            : base(Ac, Doc, P, stock)
         {
-            Accesorios = Ac;
-            Documentos = Doc;
-            Tipo = "Maquinaria";
-            Precio = P;
-            Stock = stock;
+            Tipo = TipoV.MAquinaria;
+        }
+        public override TipoV GetTipoV()
+        {
+            return this.Tipo;
         }
     }
 }
